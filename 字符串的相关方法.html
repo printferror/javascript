@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var str = "hello";
+			//字符串是以字符数组的形式保存["h","e","l","l","o"]
+			console.log(str[0])
+			console.log(str.length);		//获取字符串长度
+			
+			var result = str.charAt(0);		//返回指定位置字符
+			console.log(result);
+			
+			var result1 = str.charCodeAt(0);		//获取unicode编码
+			console.log(result1);
+			
+			var result2 = String.fromCharCode(0x2692);		//根据unicode字符编码获取文字,十六进制
+			console.log(result2);
+			
+			var str1 = str.concat("你好","世界");		//拼接字符串
+			console.log(str1);
+			
+			var result3 = str.indexOf("h");		//查找字符串返回第一次出现的索引,-1表示没找到
+			console.log(result3);
+			
+			var result4 = str.indexOf("l",3);		//从第四个数开始找 l
+			console.log(result4);
+			
+			var result5 = str.lastIndexOf("l");		//从后面开始找
+			console.log(result5);
+			
+			var result6 = str.slice(0,2);		//截取字符串,从0个开始截取2个字符
+			console.log(result6);
+			
+			var result7 = str.slice(2);		//除去前面两个字符后面的都截取下来
+			console.log(result7);
+			
+			var result8 = str.substring(1,2);		//截取字符串,不能传递负值,自动调整参数位置
+			console.log(result8);
+			
+			var str2 = "xuguodong";
+			var result9 = str2.split("u");		//拆分字符串
+			console.log(result9);
+			var result99 = str2.split("");		//每个字符都拆分开
+			console.log(result99);
+			
+			var result10 = str2.toUpperCase();		//转换成大写
+			console.log(result10);
+			
+			var str3 = "XUguodong";
+			var result11 = str3.toLowerCase();		//转换成小写
+			console.log(result11);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
