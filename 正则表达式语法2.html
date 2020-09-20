@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Reg = /./;  // .表示任意字符
+
+        var Reg1 = /\./;    //转义字符 \. 表示 . 
+        console.log(Reg1.test("dfa"));
+
+        //检查字符串里是否有斜杠
+        var Reg2 = /\\/;    
+        console.log(Reg2.test('ab\\'));
+
+        //构造函数的字符串中要显示 \. 要使用转义字符 \\.
+
+        /*
+        *\w     任意字母、数字、_   [0-9] [A-z] _
+        *\W     除了字母、数字、_   
+        *\d     任意数字[0-9]
+        *\D     除了数字
+        *\s     空格
+        *\S     除了空格
+        *\b     单词边界
+        *\B     除了单词边界
+        */
+
+        var Reg3 = /\bchild\b/;
+        console.log(Reg3.test("hello child "));     //true
+        console.log(Reg3.test("hellochild"));
+
+        // 去除开头和结尾空格，中间保留
+        var res = "   he l lo   ";
+        // 去除开头空格
+        // res = res.replace(/^\s*/,"");
+        // 去除结尾空格
+        // res = res.replace(/\s*$/,"");
+        res = res.replace(/^\s*|\s*$/g,"");
+        
+        console.log(res);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

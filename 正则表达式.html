@@ -3,6 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script>
+			var reg = new RegExp("a");
+			var str = "a";
+			var result = reg.test(str);
+			console.log(result);	//true
+
+			var reg1 = new RegExp("a");
+			console.log(reg1.test("A"));	//false,查找大写的A
+
+			var reg2 = new RegExp("a","i");
+			console.log(reg2.test("A"));	//true,忽略大小写
+
+			var reg3 = new RegExp("xuguodong");
+			console.log(reg3.test("xuguodongxu"));	//true
+		</script>
 	</head>
 	<body>
 	</body>

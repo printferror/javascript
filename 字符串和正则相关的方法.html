@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //把字符串根据字母进行拆分
+        var str = "1a2b3c4d5";
+        var result = str.split(/[A-z]/);
+        console.log(result);
+
+        //查找字符串search
+        var str1 = "hello abc def adc";
+        var result1 = str1.search("def");
+        var result11 = str1.search("name");
+        console.log(result1);   //10
+        console.log(result11);  //-1
+        console.log(str1.search(/a[bd]c/));
+
+        //根据正则表达式把符合条件的内容提取出来match
+        var str2 = "1a2b3c4da5HY";
+        var result2 = str2.match("a");
+        console.log(result2);
+        //match只找第一个符合要求的内容，全局找设置全局匹配模式
+        console.log(str2.match(/[A-z]/g));
+
+        var str3 = "abcdkidlm"
+        var result3 = str3.replace("d","@");
+        console.log(result3);   //abc@kidlm
+        console.log(str3.replace(/d/g,"@"));    //abc@ki@lm
+        console.log(str3.replace(/d/g,""));     //删除d
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
