@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 查找北京
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var bj = document.getElementById("bj");
+                alert(bj.innerHTML);
+            }
+
+            //查找所有li节点
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                var lis = document.getElementsByTagName("li");
+                for(var i = 0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            }
+
+            // 查找name为gender的所有结点
+            // 获取class   inputs[i].className
+            // 获取name    inputs[i].name
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                var inputs = document.getElementsByName("gender");
+                for(var i = 0;i<inputs.length;i++){
+                    alert(inputs[i].value);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>城市</p>
+        <ul>
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>广州</li>
+        </ul>
+        <div class="inner">
+            gender:
+            <input type="radio" name="gender" value="male"/>
+            female:
+            <input type="radio" name="gender" value="female"/>
+            name:
+            <input type="radio" name="gender" value="name"/>
+        </div>
+    </div>
+    <div>
+        <button id="btn01">查找北京</button>
+        <button id="btn02">查找li</button>
+        <button id="btn03">查找gender</button>
+    </div>
+</body>
+</html>
