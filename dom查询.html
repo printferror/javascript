@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        
+        //定义函数
+        function myClick(idStr,fun){
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+
+
         window.onload = function(){
             // 查找北京
             var btn01 = document.getElementById("btn01");
@@ -32,15 +40,67 @@
                     alert(inputs[i].value);
                 }
             }
+
+            // 获取city下面的后代节点
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function(){
+                var city = document.getElementById("city");
+                var lis = city.getElementsByTagName("li");
+                for(var i = 0;i < lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            }
+
+            //获取city下面的所有子节点,换行符也算一个节点7个
+            var btn05 = document.getElementById("btn05");
+            btn05.onclick = function(){
+                var city = document.getElementById("city");
+                var lis2 = city.childNodes;
+                for(var i = 0;i < lis2.length;i++){
+                    // alert(lis2[i].innerHTML);
+                }
+                var lis3 = city.children;
+                alert(lis3.length);     //3
+                for(var i = 0;i < lis3.length;i++){
+                    alert(lis3[i].innerHTML);   //北上广
+                }
+            }
+
+            //获取第一个子节点和最后一个节点
+            var btn06 = document.getElementById("btn06");
+            btn06.onclick = function(){
+                var city = document.getElementById("city");
+                var fir = city.firstChild;
+                var las = city.lastChild;
+                alert(fir.innerHTML);   //空白
+                alert(las.innerHTML);   //空白
+            }
+
+            //返回父节点
+            myClick("btn07",function(){
+                var bj = document.getElementById("bj");
+                var pn = bj.parentNode;
+                alert(pn.innerHTML);
+                alert(pn.innerText);
+            })
+
+            //返回兄弟节点
+            myClick("btn08",function(){
+                var sh = document.getElementById("sh");
+                var bro = sh.previousSibling;
+                alert(bro.innerHTML);   //包括空白
+                var bro1 = sh.previousElementSibling;   //不包括空白
+                alert(bro1.innerHTML);
+            })
         }
     </script>
 </head>
 <body>
     <div>
         <p>城市</p>
-        <ul>
+        <ul id="city">
             <li id="bj">北京</li>
-            <li>上海</li>
+            <li id="sh">上海</li>
             <li>广州</li>
         </ul>
         <div class="inner">
@@ -56,6 +116,11 @@
         <button id="btn01">查找北京</button>
         <button id="btn02">查找li</button>
         <button id="btn03">查找gender</button>
+        <button id="btn04">查找city下面的所有li</button>
+        <button id="btn05">查找city下面的所有子节点</button>
+        <button id="btn06">查找city下面的第一个和最后一个节点</button>
+        <button id="btn07">查找bj的父节点</button>
+        <button id="btn08">前一个兄弟节点</button>
     </div>
 </body>
 </html>
