@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var body = document.body;
+			console.log(body);
+			var html = document.documentElement;
+			console.log(html);
+			var all = document.all;		//所有元素,数组形式
+			console.log(all);
+			var alla = document.getElementsByTagName("*");	//等效于document.all
+			console.log(alla);
+			
+			// 根据class获取元素
+			var box1 = document.getElementsByClassName("box1");
+			console.log(box1);
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			<div>box1中的DIV</div>
+		</div>
+		<div id="box2">
+			<div id="box2">1</div>
+			<div id="box2">2</div>
+		</div>
+	</body>
+</html>
