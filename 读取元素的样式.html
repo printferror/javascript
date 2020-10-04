@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height:200px;
+            width:200px;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById("box");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                console.log(getStyle(box,"background-color"));
+            }
+
+            //定义一个方法获取元素样式
+            function getStyle(obj,name){
+                return getComputedStyle(obj,null)[name];
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box" style="width:400px;">
+
+    </div>
+    <button id="btn01">点击</button>
+</body>
+</html>

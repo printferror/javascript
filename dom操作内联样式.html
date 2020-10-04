@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height:200px;
+            width:200px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 修改box的样式
+            var box = document.getElementById("box");
+            var btnBox = document.getElementById("btnBox");
+            btnBox.onclick = function(){
+                box.style.width = "300px";
+                box.style.height = "300px";
+                box.style.backgroundColor = "blue";
+                box.style.marginBottom = "1rem";
+                alert(box.style.width);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="btnBox">点击</button>
+</body>
+</html>
