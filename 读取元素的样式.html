@@ -21,8 +21,11 @@
 
             //定义一个方法获取元素样式
             function getStyle(obj,name){
-                return getComputedStyle(obj,null)[name];
-                return obj.currentStyle[name];
+                if(window.getComputedStyle){
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
             }
         }
     </script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info{
+            width:200px;
+            height:400px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var info = document.getElementById("info");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            info.onscroll = function(){
+                console.log(info.scrollTop);
+                // console.log(info.clientHeight);
+                if(info.scrollTop > 681){
+                    btn01.disabled = false;
+                    btn02.disabled = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>欢迎注册</h3>
+    <p id="info">
+        音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线音乐播放器无需安装 | 完整体验有求必应 | 用户至上打磨细节 | 精心设计立即体验「点我试试」 深色主题 全能播放器 不用下载客户端,即可在线
+    </p>
+    <input id="btn01" type="checkbox" disabled="false">同意
+    <input id="btn02" type="submit" disabled="disabled" value="注册">
+    
+</body>
+</html>

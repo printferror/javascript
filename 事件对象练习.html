@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:1000px;
+            border:1px solid blue;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+             *解决兼容问题
+            */
+            event = event || window.event;
+
+            /*
+             *获取滚动条高度
+            */
+            /*
+             *chrome认为滚动条高度冲body上获取
+             *var st = document.body.scrollTop;
+             *火狐等浏览器认为滚动条是html的
+             *var st = document.documentElement.scrollTop;
+            */
+            var st = document.body.scrollTop || document.documentElement.scrollTop;
+
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                /*
+                 *clientX和clientY获取的位置是相对与窗口的位置
+                */
+                box1.style.top= event.clientY + st + "px";
+                box1.style.left= event.clientX + "px";
+                /*
+                 *pageX和pageY获取的位置是相对于整个页面的,但是不兼容IE8
+                */
+                // box1.style.top = event.pageY + "px";
+                // box1.style.left = event.pageX + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

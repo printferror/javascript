@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            border:1px solid black;
+            height:200px;
+            width:300px;
+        }
+        #showMsg{
+            border:1px solid black;
+            height:100px;
+            width:300px;
+            margin-top:20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+             *当鼠标再areaDiv中移动式再showMsg中显示位置
+             *当事件对象触发时，浏览器会将事件对象作为实参传递金响应函数
+             * event = event || window.event    true则返回event，否则返回window.event
+            */
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+            areaDiv.onmousemove = function(event){
+                if(!event){
+                    event = window.event;
+                }
+                showMsg.innerHTML = "x = " + event.clientX + ",y= " + event.clientY;
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>
