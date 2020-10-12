@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box01{
+            height:100px;
+            width:100px;
+            background-color: seagreen;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box01 = document.getElementById("box01");
+            /*
+             * onmousewhell 鼠标滚轮事件
+             */
+            box01.onmousewheel = function(event){
+                //判断鼠标滚动方向 event.wheelDelta
+                //向上为正 向下为负
+                //火狐不支持
+                event = event || window.event;
+                // alert(event.wheelDelta);
+
+                //火狐使用
+                // alert(event.detail);
+                if(event.wheelDelta > 0 || event.detail < 0){
+                    box01.style.height = box01.clientHeight - 10 + "px";
+                }else{
+                    box01.style.height = box01.clientHeight + 10 + "px";
+                }
+                event.preventDefault();
+                return false;
+            };
+            bind(box01,"DOMMouseScroll",box01.onmousewheel);
+
+            function bind(obj , eventStr , callback){
+                if(obj.addEventListener){
+                    obj,addEventListener(eventStr ,callback ,false);
+                }else{
+                    obj.attachEvent("on" + eventStr ,function(){
+                        callback.call(obj);
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+<body style="height:2000px;">
+    <div id="box01"></div>
+</body>
+</html>

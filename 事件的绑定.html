@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            /*
+             *btn01.onclick =function(){}
+             *一次只能为一个元素的一个事件绑定一个响应函数
+            */
+            btn01.onclick = function(){
+                alert("1");
+            }
+            btn01.onclick = function(){
+                alert("2");
+            }
+            /*
+             *addEventListener()
+             *参数：
+             *1、事件的字符串，不要on
+             *2、回调函数
+             *3、是否在捕获阶段返回触发事件，需要一个布尔值，一般为false
+             *注意：IE8以下不支持要用attachEvent()
+             */
+            //   *attachEvent()
+            /*
+             *1、事件的字符串，不要on
+             *2、回调函数
+             */
+            // btn02.attachEvent("click",function(){
+            //     alert("3");
+            // });
+            // btn02.attachEvent("click",function(){
+            //     alert("4");
+            // });
+
+            // 定义一个函数，用来指定元素绑定响应函数
+            /*
+             * addEventListener()中的this，是绑定事件的对象
+             * attachEvent()中的this，是window
+             * 需要统一两个方法 this
+             */
+            /*
+             * 参数：
+             *  obj 要绑定事件的对象
+             *  eventStr 事件的字符串（不要on）
+             *  callback 回调函数
+            */
+            bind(btn02 , "click" , function(){
+                alert(this);
+            });
+            function bind(obj , eventStr , callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr , callback , false);
+                }else{
+                    obj.attachEvent("on"+eventStr , function(){
+                        //在匿名函数中调用回调函数
+                        callback();
+                    });
+                }
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <button id="btn02">点击</button>
+</body>
+</html>
