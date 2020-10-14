@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+     * bom：通过js操作浏览器
+     * dom：通过js操作网页
+     * bom对象：
+     *  window
+     *    -代表整个浏览器窗口，网页中的全局对象
+     *  navigator
+     *    -代表当前浏览器信息，可以用来识别不通浏览器
+     *  location
+     *    -代表当前浏览器地址栏信息，操作页面跳转
+     *  history
+     *    -浏览器历史记录，不能获取到具体的历史记录，只能操作浏览器向前或向后
+     *  screen
+     *    -获取用户显示器信息
+     *
+     *
+     *    bom对象都是window对象的属性,可以通过window调用也可以直接调用
+     */
+     window.onload = function(){
+       console.log(navigator.userAgent);
+       var ua = navigator.userAgent;
+       if(/firefox/i.test(ua)){
+         console.log("火狐");
+       }else if(/chrome/i.test(ua)){
+         console.log("谷歌");
+       }else if(/msie/i.test(ua) || "ActiveXObject" in window){
+         console.log("ie");
+       }
+     }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
