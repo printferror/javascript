@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #box01{
+            width:100px;
+            height:100px;
+            background-color: seagreen;
+            position: absolute;
+            left:0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box01 = document.getElementById("box01");
+            var btn01 = document.getElementById("btn01");
+            var timer;
+            btn01.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(() => {
+                    // 获取属性值，把 0px 转换成 0
+                    var oldValue = parseInt(getStyle(box01,"left"));  
+                    //递增
+                    var newValue = oldValue + 10;
+                    // 判断newValue的值
+                    if(newValue > 800){
+                        newValue = 800;
+                    };
+                    // 设置box01的值
+                    box01.style.left = newValue + "px";
+                    // 当元素移动到800px时停止移动              
+                    if(newValue == 800){
+                        clearInterval(timer);
+                    }
+                }, 30);
+            };
+            function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    return getComputedStyle(obj , null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点击按钮box01向右移动</button>
+    <div id="box01"></div>
+    <div style="position: absolute;top:0;left:800px;height:1000px;width:0;border-left:1px solid black;"></div>
+</body>
+</html>
