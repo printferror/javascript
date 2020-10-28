@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width:150px;
+            height:150px;
+            background-color: seagreen;
+            position: absolute;
+            left:0;
+        }
+        
+    </style>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var box1 = document.getElementById("box1");
+            var timer;
+            btn01.onclick = function(){
+                move(box1,0,15);
+                // clearInterval(timer);
+                // timer = setInterval(function(){
+                //     var oldStyle = parseInt(getStyle(box1,"left"));
+                //     var newStyle = oldStyle - 10;
+                //     if(newStyle <= 0){
+                //         newStyle = 0;
+                //         clearInterval(timer);
+                //     }
+                //     box1.style.left = newStyle + "px";
+                // },20)
+            };
+            btn02.onclick = function(){
+                move(box1,800,15);
+                // clearInterval(timer);
+                // timer = setInterval(function(){
+                //     var oldStyle = parseInt(getStyle(box1,"left"));
+                //     var newStyle = oldStyle + 10;
+                //     if(newStyle >= 800){
+                //         newStyle = 800;
+                //         clearInterval(timer);
+                //     }
+                //     box1.style.left = newStyle + "px";
+                // },20)
+            };
+            function move(obj,target,speed){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    var oldStyle = parseInt(getStyle(box1,"left"));
+                    if(target < oldStyle){
+                        if(speed > 0){
+                            speed = -speed;
+                        }
+                    }
+                    var newStyle = oldStyle + speed;
+                    if((speed < 0 && newStyle <= target) || (speed > 0 && newStyle >= target)){
+                        newStyle = target;
+                        clearInterval(timer);
+                    }
+                    box1.style.left = newStyle + "px";
+                },20)
+            };
+            function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">向左</button>
+    <button id="btn02">向右</button>
+    <div id="box1"></div>
+    <div style="height:1000px;position: absolute;left:800px;top:0;border-left:1px solid black;"></div>
+</body>
+</html>

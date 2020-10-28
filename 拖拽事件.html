@@ -38,28 +38,29 @@
              */
              function drag(obj){
                 obj.onmousedown = function(event){
-                event = event || window.event;
-                if(obj.setCapture){
-                    obj.setCapture();
-                }
-                var ol = event.clientX - obj.offsetLeft;
-                var ot = event.clientY - obj.offsetTop;
-                document.onmousemove = function(event){
                     event = event || window.event;
-                    var left = event.clientX - ol;
-                    var top = event.clientY - ot;
-                    obj.style.left = left + "px";
-                    obj.style.top = top + "px";
-                    //取消浏览器默认搜索
-                    return false;
-                }
-                document.onmouseup = function(){
-                    document.onmousemove = null;
-                    document.onmouseup = null;
-                    obj.releaseCapture && obj.releaseCapture();
-                }
-            };
-             }
+                    if(obj.setCapture){
+                        obj.setCapture();
+                    }
+                    var ol = event.clientX - obj.offsetLeft;
+                    var ot = event.clientY - obj.offsetTop;
+                    document.onmousemove = function(event){
+                        event = event || window.event;
+                        var left = event.clientX - ol;
+                        var top = event.clientY - ot;
+                        obj.style.left = left + "px";
+                        obj.style.top = top + "px";
+                        //取消浏览器默认搜索
+                        return false;
+                    }
+                    document.onmouseup = function(){
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                        obj.releaseCapture && obj.releaseCapture();
+                    }
+                
+                };
+            }
         };
     </script>
 </head>
